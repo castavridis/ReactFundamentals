@@ -4,7 +4,7 @@
   "description": "Local repo following http://courses.reactjsprogram.com/courses/reactjsfundamentals/",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --inline --content-base",
     "watch": "webpack -w",
     "production": "webpack -p",
     "test": "ava 'app/**/*.test.js' --verbose --require ./other/setup-ava-tests.js"
@@ -14,7 +14,8 @@
   "dependencies": {
     "jquery": "^2.2.4",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "react-router": "^2.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",

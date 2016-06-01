@@ -2,10 +2,11 @@ var USER_DATA = {
   name: 'Little Bug',
   username: 'lil_bug',
   image: 'http://www.strapya-world.com/images/medium/390/390-891760_2_MED.jpg'
-}
+};
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+var routes = require('./config/routes');
 
 var ProfilePic = React.createClass({
   render: function () {
@@ -21,10 +22,32 @@ var ProfileLink = React.createClass({
   render: function () {
     return (
       <div>
-        <a href={'#' + this.props.username}>
+        <Link href={'#' + this.props.username}>
           {this.props.username}
-        </a>
+        </Link>
       </div>
+    );
+  }
+});
+
+var Link = React.createClass({
+  changeURL: function () {
+    location.hash = this.props.href;
+  },
+  render: function () {
+    return (
+      <span
+        style={
+          {
+            color: 'blue',
+            cursor: 'pointer'
+          }
+        }
+        onClick={
+          this.changeURL
+        }>
+        {this.props.children}
+      </span>
     );
   }
 });
@@ -52,6 +75,6 @@ var Avatar = React.createClass({
 });
 
 ReactDOM.render(
-  <Avatar user={USER_DATA} />,
+  routes,
   document.getElementById('app')
-);
+)
